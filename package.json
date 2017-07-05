@@ -25,5 +25,8 @@
     "react-router": "3.0.4",
     "three": "^0.85.2",
     "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.23.0"
   }
 }

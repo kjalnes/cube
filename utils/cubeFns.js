@@ -28,7 +28,7 @@ const initCube = () => {
 
     // combine the geometry and the material into a mesh
     cube = new THREE.Mesh( geometry, material );
-    cube.position.y = 150;
+    cube.position.y = 130;
     // add the mesh to the scene
     scene.add( cube );
 
@@ -42,8 +42,8 @@ const initCube = () => {
 
     // Move the camera 'out' by 30
     // camera.position.z = 30;
-    camera.position.y = 150;
-    camera.position.z = 500;
+    camera.position.y = 100;
+    camera.position.z = 300;
 
 
     // Create WebGL renderer
