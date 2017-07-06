@@ -58,10 +58,6 @@ const initCube = () => {
     let materialPlane = new THREE.MeshBasicMaterial( { color: 0xe0e0e0, overdraw: 0.5 } );
     plane = new THREE.Mesh( geometryPlane, materialPlane );
     scene.add( plane );
-    renderer = new THREE.CanvasRenderer();
-    renderer.setClearColor( 0xf0f0f0 );
-    renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( window.innerWidth, window.innerHeight );
     // Add DOM element to body
     document.body.appendChild( renderer.domElement );
     document.body.appendChild(renderer3D.domElement);
@@ -74,55 +70,55 @@ const onWindowResize = () => {
     windowHalfY = window.innerHeight / 2;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer3D.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer3D.setSize(window.innerWidth, window.innerHeight);
 };
 
 const onMouseDown = (ev) => {
     ev.preventDefault();
-    document.addEventListener( 'mousemove', onMouseMove, false );
-    document.addEventListener( 'mouseup', onMouseUp, false );
-    document.addEventListener( 'mouseout', onMouseOut, false );
+    document.addEventListener('mousemove', onMouseMove, false);
+    document.addEventListener('mouseup', onMouseUp, false);
+    document.addEventListener('mouseout', onMouseOut, false);
     mousePositionOnMouseDown = event.clientX - windowHalfX;
     targetRotationOnMouseDown = targetRotation;
 };
 
-const onMouseMove = ( event ) =>  {
-    mousePosition = event.clientX - windowHalfX;
-    targetRotation = targetRotationOnMouseDown + ( mousePosition - mousePositionOnMouseDown ) * 0.02;
+const onMouseMove = (ev) =>  {
+    mousePosition = ev.clientX - windowHalfX;
+    targetRotation = targetRotationOnMouseDown + (mousePosition - mousePositionOnMouseDown) * 0.02;
 };
 
-const onMouseUp = ( event ) =>  {
-    document.removeEventListener( 'mousemove', onMouseMove, false );
-    document.removeEventListener( 'mouseup', onMouseUp, false );
-    document.removeEventListener( 'mouseout', onMouseOut, false );
+const onMouseUp = () =>  {
+    document.removeEventListener('mousemove', onMouseMove, false);
+    document.removeEventListener('mouseup', onMouseUp, false);
+    document.removeEventListener('mouseout', onMouseOut, false);
 };
 
-const onMouseOut = ( event ) => {
-    document.removeEventListener( 'mousemove', onMouseMove, false );
-    document.removeEventListener( 'mouseup', onMouseUp, false );
-    document.removeEventListener( 'mouseout', onMouseOut, false );
+const onMouseOut = () => {
+    document.removeEventListener('mousemove', onMouseMove, false);
+    document.removeEventListener('mouseup', onMouseUp, false);
+    document.removeEventListener('mouseout', onMouseOut, false);
 };
 
-const onDocumentTouchStart = ( event ) => {
-    if ( event.touches.length === 1 ) {
-        event.preventDefault();
-        mousePositionOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
+const onDocumentTouchStart = (ev) => {
+    if (ev.touches.length === 1) {
+        ev.preventDefault();
+        mousePositionOnMouseDown = ev.touches[0].pageX - windowHalfX;
         targetRotationOnMouseDown = targetRotation;
     }
 };
 
-const onTouchMove = ( event ) => {
-    if ( event.touches.length === 1 ) {
-        event.preventDefault();
-        mousePosition = event.touches[0].pageX - windowHalfX;
-        targetRotation = targetRotationOnMouseDown + ( mousePosition - mousePositionOnMouseDown ) * 0.05;
+const onTouchMove = (ev) => {
+    if (ev.touches.length === 1) {
+        ev.preventDefault();
+        mousePosition = ev.touches[0].pageX - windowHalfX;
+        targetRotation = targetRotationOnMouseDown + (mousePosition - mousePositionOnMouseDown) * 0.05;
     }
 };
 
 const animate = () => {
     // infinite loop
-    requestAnimationFrame( animate );
+    requestAnimationFrame(animate);
     render();
 };
 
