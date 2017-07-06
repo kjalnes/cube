@@ -11,7 +11,7 @@
     "start:dev": "npm run webpack -- -w & nodemon --ignore dist/ --ignore src/ server.js",
     "webpack": "./node_modules/webpack/bin/webpack.js",
     "start": "node server.js",
-    "postinstall": "webpack -p --config ./webpack.prod.config.js --progress"
+    "postinstall": "webpack -p --config ./webpack.config.js --progress"
   },
   "author": "",
   "license": "ISC",
