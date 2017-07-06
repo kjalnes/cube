@@ -21,7 +21,7 @@ const initCube = () => {
     // create geometry
         // create a cube of 10 width/length and height
     // geometry = new THREE.BoxGeometry(10,10,10);
-    geometry = new THREE.BoxGeometry(200,200,200);
+    geometry = new THREE.BoxGeometry(250,150,250);
 
     // create a MeshBasicMaterial with a loaded texture
     material = new THREE.MeshBasicMaterial({ map: texture, overdraw: 0.5 });
@@ -54,7 +54,7 @@ const initCube = () => {
     renderer.setClearColor( 0xf0f0f0 );
 
     // Plane
-    var geometryPlane = new THREE.PlaneBufferGeometry( 200, 200 );
+    var geometryPlane = new THREE.PlaneBufferGeometry( 250, 250 );
     geometryPlane.rotateX( - Math.PI / 2 );
     var materialPlane = new THREE.MeshBasicMaterial( { color: 0xe0e0e0, overdraw: 0.5 } );
     plane = new THREE.Mesh( geometryPlane, materialPlane );
@@ -64,7 +64,6 @@ const initCube = () => {
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     // container.appendChild( renderer.domElement );
-
 
     // Add in the created DOM element to the body of the document
     document.body.appendChild( renderer.domElement );
@@ -165,6 +164,7 @@ export { initCube, animate }
 // https://threejs.org/examples/canvas_geometry_cube.html
 // https://github.com/mrdoob/three.js/issues/195
 // https://videlais.com/2017/01/13/learning-three-js-part-3-loading-and-using-textures/
+// https://jeanlescure.io/blog/threejs-and-css-3d-transforms/
 
 /* new approach */
 
