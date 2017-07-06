@@ -6,8 +6,8 @@ const App = () => {
     animate();
     return (
         <div>
-            <span><a href='https://threejs.org/'>Three.js</a> WebGL cube - using CanvasRenderer
-/ CSS3DObject / CSS3DRenderer</span> - <a href='github.com/kjalnes/cube'>GitHub repo</a><span className='pull-right'>Back to <a href='www.makelovenotvar.com'>makelovenotvar.com</a></span>
+            <span><a href='//www.threejs.org/' target='_blank'>Three.js</a> WebGL cube - using CanvasRenderer
+/ CSS3DObject / CSS3DRenderer</span> - <a href='//www.github.com/kjalnes/cube' target='_blank'>GitHub repo</a><span className='pull-right'>Back to <a href='//www.makelovenotvar.com'>makelovenotvar.com</a></span>
 </div>
     )
 };
