@@ -49,10 +49,11 @@ const initCube = () => {
 
 
     // Create WebGL renderer
-    renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer = new THREE.WebGLRenderer({ antialias: true });
 
     // Set the size of the rendered to the inner width and inner height of the window
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.domElement.style.zIndex = 5;
     renderer.setClearColor( 0xf0f0f0 );
 
     //CSS3D Scene
@@ -73,7 +74,7 @@ const initCube = () => {
     renderer2.setSize(window.innerWidth, window.innerHeight);
     renderer2.domElement.style.position = 'absolute';
     renderer2.domElement.style.top = 0;
-    document.body.appendChild(renderer2.domElement);
+
 
 
     // Plane
@@ -90,6 +91,7 @@ const initCube = () => {
 
     // Add in the created DOM element to the body of the document
     document.body.appendChild( renderer.domElement );
+    document.body.appendChild(renderer2.domElement);
 
     document.addEventListener('mousedown', onDocumentMouseDown, false);
 
@@ -103,7 +105,7 @@ const onWindowResize = () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
-
+    renderer2.setSize( window.innerWidth, window.innerHeight );
 }
 
 
@@ -174,9 +176,8 @@ const animate = () => {
 
 function render() {
     plane.rotation.y = cube.rotation.y += ( targetRotation - cube.rotation.y ) * 0.05;
+    renderer2.render( scene2, camera );
     renderer.render( scene, camera );
-    renderer2.render(scene2, camera);
-
 }
 
 
