@@ -10,7 +10,8 @@ module.exports = {
   resolve: {
     alias: {
       'three/CanvasRenderer': path.join(__dirname, 'node_modules/three/examples/js/renderers/CanvasRenderer.js'),
-      'three/Projector': path.join(__dirname, 'node_modules/three/examples/js/renderers/Projector.js')
+      'three/Projector': path.join(__dirname, 'node_modules/three/examples/js/renderers/Projector.js'),
+      'three/CSS3DRenderer': path.join(__dirname, 'node_modules/three/examples/js/renderers/CSS3DRenderer.js')
     }
   },
   module: {

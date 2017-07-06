@@ -1,9 +1,11 @@
 import 'three/CanvasRenderer';
 import 'three/Projector';
+import 'three/CSS3DRenderer';
 // console.log(THREE.CanvasRenderer);
 // console.log(THREE.Projector);
 
 let camera, scene, renderer, geometry, material, cube, plane;
+let scene2, renderer2, element, div;
 let targetRotation = 0;
 let targetRotationOnMouseDown = 0;
 let mouseX = 0;
@@ -53,6 +55,27 @@ const initCube = () => {
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.setClearColor( 0xf0f0f0 );
 
+    //CSS3D Scene
+    scene2 = new THREE.Scene();
+    //HTML
+    element = document.createElement('div');
+    element.innerHTML = 'Plain text inside a div.';
+    element.className = 'three-div';
+    //CSS Object
+    div = new THREE.CSS3DObject(element);
+    div.position.x = 0;
+    div.position.y = 0;
+    div.position.z = -185;
+    div.rotation.y = Math.PI;
+    scene2.add(div);
+    //CSS3D Renderer
+    renderer2 = new THREE.CSS3DRenderer();
+    renderer2.setSize(window.innerWidth, window.innerHeight);
+    renderer2.domElement.style.position = 'absolute';
+    renderer2.domElement.style.top = 0;
+    document.body.appendChild(renderer2.domElement);
+
+
     // Plane
     var geometryPlane = new THREE.PlaneBufferGeometry( 250, 250 );
     geometryPlane.rotateX( - Math.PI / 2 );
@@ -80,6 +103,7 @@ const onWindowResize = () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
+
 }
 
 
@@ -151,6 +175,8 @@ const animate = () => {
 function render() {
     plane.rotation.y = cube.rotation.y += ( targetRotation - cube.rotation.y ) * 0.05;
     renderer.render( scene, camera );
+    renderer2.render(scene2, camera);
+
 }
 
 
