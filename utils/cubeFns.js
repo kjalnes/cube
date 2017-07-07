@@ -39,7 +39,7 @@ const initCube = () => {
     scene3D = new THREE.Scene();
     // HTML
     element = document.createElement('div');
-    element.innerHTML = 'Div w/ text on top of three.js WebGL cube.';
+    element.innerHTML = '<div class="txt"><p>Div w/ text on top of three.js WebGL cube.</p><p>Drag mouse to spin cube.</p></div>';
     element.className = 'three-div';
     // CSS 3DObject
     div = new THREE.CSS3DObject(element);
